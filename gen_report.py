@@ -67,4 +67,5 @@ page << h5('www.52zhangting.com, qq群：513656027',align='center')
 f = 'web/yaogu/' + todayStr + '.html'
 print("The file %s is generated" %f)
 page.printOut(f)
+os.remove('web/index.html')
 os.symlink(f,'web/index.html')
