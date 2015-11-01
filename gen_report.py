@@ -63,7 +63,9 @@ for r in allOneWeek:
             break
     name = symbols.getName(symbol)
     tr1 = tbody1 << tr(id='line'+str(i))
-    tr1 << td(symbol)
+    link1 = tr1 << td()
+    link1 << a(symbol,href="http://stock.jrj.com.cn/share," + str(symbol) + ".shtml")
+    #http://stock.jrj.com.cn/share,002292.shtml
     tr1 << td(name)
     tr1 << td(inOneWeek)
     tr1 << td(inTwoWeek)

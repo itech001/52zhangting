@@ -1,6 +1,7 @@
 
   $(document).ready(function() {
   $('#mytable1').dataTable( {
+    searching: true,
     paging: true,
     ordering: true,
     orderMulti : true,
