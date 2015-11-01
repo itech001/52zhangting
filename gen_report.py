@@ -1,4 +1,5 @@
 import os
+import re
 from  datetime  import  *
 from StockDB import *
 from Stock import Stock
@@ -65,7 +66,8 @@ page << hr()
 page << h5('www.52zhangting.com, qq群：513656027',align='center')
 
 f = 'web/yaogu/' + todayStr + '.html'
+fn = re.sub('web/','',f)
 print("The file %s is generated" %f)
 page.printOut(f)
 os.remove('web/index.html')
-os.symlink(f,'web/index.html')
+os.symlink(fn,'web/index.html')
