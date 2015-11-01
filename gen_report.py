@@ -11,7 +11,7 @@ all_symbols = symbols.getSymbols()
 
 oneWeek = 7
 twoWeek = 14
-showRecord = 100
+showRecord = 2000
 all = stocks.findGreatThan9()
 allOneWeek = stocks.findGreatThan9ForLatest(oneWeek)
 allTwoWeek = stocks.findGreatThan9ForLatest(twoWeek)

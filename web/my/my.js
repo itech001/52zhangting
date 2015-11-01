@@ -4,7 +4,7 @@
     paging: true,
     ordering: true,
     orderMulti : true,
-    pageLength: 101,
+    pageLength: 100,
     order: [[ 2, 'desc' ], [ 3, 'desc' ], [4,'desc']],
     columnDefs: [
     {
