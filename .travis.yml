@@ -5,6 +5,7 @@ install:
   - sudo apt-get install git
   - pip3 install ghp-import
 script:
+  - python gen_yaogu.py
 after_success:
   - echo OK
   - cp 404.html web/.
