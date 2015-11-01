@@ -9,10 +9,12 @@ stocks = Stocks()
 symbols = Symbols()
 all_symbols = symbols.getSymbols()
 
-latestDay = 14
+oneWeek = 7
+twoWeek = 14
 showRecord = 100
 all = stocks.findGreatThan9()
-allIn7Days = stocks.findGreatThan9ForLatest(latestDay)
+allOneWeek = stocks.findGreatThan9ForLatest(oneWeek)
+allTwoWeek = stocks.findGreatThan9ForLatest(twoWeek)
 
 page = PyH("MyPage")
 page.addCSS('../bootstrap-3.3.5-dist/css/bootstrap.css', '../bootstrap-3.3.5-dist/css/bootstrap-theme.css', 'bootstrap-3.3.5-dist/css/bootstrap-theme.css.map', '../DataTables-1.10.9/css/dataTables.bootstrap.css', '../Scroller-1.3.0/css/scroller.bootstrap.css', '../Select-1.0.1/css/select.bootstrap.css')
@@ -40,17 +42,21 @@ thead1 = table1 << thead(id='thead1')
 tr1 = thead1 << tr(id='headline')
 tr1 << th('代码')
 tr1 << th('名字')
-tr1 << th('最近')
-tr1 << th('所有')
+tr1 << th('最近1周')
+tr1 << th('最近２周')
+tr1 << th('2015')
 
 tbody1 = table1 << tbody(id='tboday1')
 i = 0
-for r in allIn7Days:
+for r in allOneWeek:
     if(i>=showRecord): break
     i += 1
     symbol = r[0]
-    in7days = r[1]
+    inOneWeek = r[1]
     inall = 0
+    for r1 in allTwoWeek:
+        if(symbol == r1[0]):
+            inTwoWeek = r1[1]
     for r2 in all:
         if(symbol == r2[0]):
             inall = r2[1]
@@ -59,7 +65,8 @@ for r in allIn7Days:
     tr1 = tbody1 << tr(id='line'+str(i))
     tr1 << td(symbol)
     tr1 << td(name)
-    tr1 << td(in7days)
+    tr1 << td(inOneWeek)
+    tr1 << td(inTwoWeek)
     tr1 << td(inall)
 
 page << hr()
