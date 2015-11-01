@@ -1,3 +1,4 @@
+import os
 from  datetime  import  *
 from StockDB import *
 from Stock import Stock
@@ -66,3 +67,4 @@ page << h5('www.52zhangting.com, qq群：513656027',align='center')
 f = 'web/yaogu/' + todayStr + '.html'
 print("The file %s is generated" %f)
 page.printOut(f)
+os.symlink(f,'web/index.html')
