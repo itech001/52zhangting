@@ -16,7 +16,9 @@ all = stocks.findGreatThan9()
 allOneWeek = stocks.findGreatThan9ForLatest(oneWeek)
 allTwoWeek = stocks.findGreatThan9ForLatest(twoWeek)
 
-page = PyH("MyPage")
+
+domain = "52zhangting.com"
+page = PyH(domain)
 page.addCSS('../bootstrap-3.3.5-dist/css/bootstrap.css', '../bootstrap-3.3.5-dist/css/bootstrap-theme.css', 'bootstrap-3.3.5-dist/css/bootstrap-theme.css.map', '../DataTables-1.10.9/css/dataTables.bootstrap.css', '../Scroller-1.3.0/css/scroller.bootstrap.css', '../Select-1.0.1/css/select.bootstrap.css')
 page.addJS('../jQuery-2.1.4/jquery-2.1.4.js', '../bootstrap-3.3.5-dist/js/bootstrap.js', '../DataTables-1.10.9/js/jquery.dataTables.js','../DataTables-1.10.9/js/dataTables.bootstrap.js','../Scroller-1.3.0/js/dataTables.scroller.js','../Select-1.0.1/js/dataTables.select.js','../my/my.js')
 
@@ -27,6 +29,7 @@ page.addJS('../jQuery-2.1.4/jquery-2.1.4.js', '../bootstrap-3.3.5-dist/js/bootst
 #char.attributes['content'] = 'text/html;charset=utf-8'
 #char << 'http-equiv="Content-Type" content="text/html;charset=utf-8"'
 
+domain = "www.52zhangting.com"
 todayStr = datetime.now().strftime('%Y-%m-%d')
 page << h1('妖股 -' + todayStr,align='center')
 mydiv1 = page << div(id='myDiv1')
@@ -72,7 +75,7 @@ for r in allOneWeek:
     tr1 << td(inall)
 
 page << hr()
-page << h5('www.52zhangting.com, qq群：513656027',align='center')
+page << h5(domain + ', qq群：513656027',align='center')
 
 f = 'web/yaogu/' + todayStr + '.html'
 fn = re.sub('web/','',f)
