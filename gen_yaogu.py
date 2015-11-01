@@ -22,7 +22,7 @@ allTwoWeek = stocks.findGreatThan9ForLatestNum(twoWeek)
 domain = "52zhangting.com"
 page = PyH(domain)
 page.addCSS('../bootstrap-3.3.5-dist/css/bootstrap.css', '../bootstrap-3.3.5-dist/css/bootstrap-theme.css', 'bootstrap-3.3.5-dist/css/bootstrap-theme.css.map', '../DataTables-1.10.9/css/dataTables.bootstrap.css', '../Scroller-1.3.0/css/scroller.bootstrap.css', '../Select-1.0.1/css/select.bootstrap.css')
-page.addJS('../jQuery-2.1.4/jquery-2.1.4.js', '../bootstrap-3.3.5-dist/js/bootstrap.js', '../DataTables-1.10.9/js/jquery.dataTables.js','../DataTables-1.10.9/js/dataTables.bootstrap.js','../Scroller-1.3.0/js/dataTables.scroller.js','../Select-1.0.1/js/dataTables.select.js','../my/my.js')
+page.addJS('../jQuery-2.1.4/jquery-2.1.4.js', '../bootstrap-3.3.5-dist/js/bootstrap.js', '../DataTables-1.10.9/js/jquery.dataTables.js','../DataTables-1.10.9/js/dataTables.bootstrap.js','../Scroller-1.3.0/js/dataTables.scroller.js','../Select-1.0.1/js/dataTables.select.js','../my/yaogu.js')
 
 #head = page << head()
 #<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />

@@ -2,10 +2,7 @@
 https://github.com/cgoldberg/ystockquote
 http://www.sqlite.org/howtocompile.html
 
-
-get_stock_name.py
-
 get_history.py
-gen_report.py 
+gen_yaogu.py 
 
 
