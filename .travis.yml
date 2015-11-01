@@ -1,0 +1,15 @@
+language: python
+python:
+  - 3.4
+install:
+  - sudo apt-get install git
+  - pip3 install ghp-import
+script:
+  - python gen_report.py
+after_success:
+  - echo OK
+  - cp 404.html web/.
+  - ghp-import -n web -m "update by travis-ci"
+  - git push -qf https://${TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git gh-pages
+after_failure:
+  - echo failed
