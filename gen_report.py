@@ -12,9 +12,11 @@ all_symbols = symbols.getSymbols()
 oneWeek = 7
 twoWeek = 14
 showRecord = 2000
+latestDate = stocks.getLatestDate();
+latest = stocks.findGreatThan9ForDay(latestDate)
 all = stocks.findGreatThan9()
-allOneWeek = stocks.findGreatThan9ForLatest(oneWeek)
-allTwoWeek = stocks.findGreatThan9ForLatest(twoWeek)
+allOneWeek = stocks.findGreatThan9ForLatestNum(oneWeek)
+allTwoWeek = stocks.findGreatThan9ForLatestNum(twoWeek)
 
 
 domain = "52zhangting.com"
@@ -31,7 +33,19 @@ page.addJS('../jQuery-2.1.4/jquery-2.1.4.js', '../bootstrap-3.3.5-dist/js/bootst
 
 domain = "www.52zhangting.com"
 todayStr = datetime.now().strftime('%Y-%m-%d')
-page << h1('妖股 -' + todayStr,align='center')
+todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+page << h2('我爱涨停 - ' + todayStrFull,align='center')
+page << hr()
+div0 = page << div(align='center')
+links = {'概念板块':'http://stock.jrj.com.cn/concept/conceptList.shtml?sort=todaypl&order=desc&test=3',
+        '大单净买':'http://summary.jrj.com.cn/zljk/ddjmb.shtml',
+        '盘中异动':'http://summary.jrj.com.cn/pzyd.shtml',
+        '龙虎榜':'http://data.10jqka.com.cn/market/longhu/'}
+for k in links.keys():
+    v = links[k]
+    div0 << a(k,href=v)
+    div0 << a('&nbsp')
+page << hr()
 mydiv1 = page << div(id='myDiv1')
 mydiv1.attributes['class'] = 'container'
 mydiv2 = mydiv1 << div(id='myDiv2')
@@ -45,6 +59,7 @@ thead1 = table1 << thead(id='thead1')
 tr1 = thead1 << tr(id='headline')
 tr1 << th('代码')
 tr1 << th('名字')
+tr1 << th(latestDate)
 tr1 << th('最近1周')
 tr1 << th('最近２周')
 tr1 << th('2015')
@@ -56,20 +71,32 @@ for r in allOneWeek:
     i += 1
     symbol = r[0]
     inOneWeek = r[1]
-    inall = 0
+
+    inTwoWeek = 0
     for r1 in allTwoWeek:
         if(symbol == r1[0]):
             inTwoWeek = r1[1]
+            break
+
+    inall = 0
     for r2 in all:
         if(symbol == r2[0]):
             inall = r2[1]
             break
+
+    inlatest = 0
+    for r3 in latest:
+        if(symbol == r3[0]):
+            inlatest = r3[1]
+            break
+
     name = symbols.getName(symbol)
     tr1 = tbody1 << tr(id='line'+str(i))
     link1 = tr1 << td()
     link1 << a(symbol,href="http://stock.jrj.com.cn/share," + str(symbol) + ".shtml")
     #http://stock.jrj.com.cn/share,002292.shtml
     tr1 << td(name)
+    tr1 << td(inlatest)
     tr1 << td(inOneWeek)
     tr1 << td(inTwoWeek)
     tr1 << td(inall)
@@ -79,7 +106,7 @@ page << h5(domain + ', qq群：513656027',align='center')
 
 f = 'web/yaogu/' + todayStr + '.html'
 fn = re.sub('web/','',f)
-print("The file %s is generated" %f)
+print("%s is generated" %f)
 page.printOut(f)
 os.remove('web/index.html')
 os.symlink('./' + fn,'web/index.html')

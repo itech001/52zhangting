@@ -57,7 +57,7 @@ class Stocks:
         all = self.dbh.select(sql)
         return all
 
-    def findGreatThan9ForLatest(self,num):
+    def findGreatThan9ForLatestNum(self,num):
         sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 0.09 and dateV > date('now','-%i days') group by symbol order by c desc;" %num
         all = self.dbh.select(sql)
         return all
@@ -69,6 +69,19 @@ class Stocks:
             return all[0][0]
         else:
             return 0
+
+    def getLatestDate(self):
+        sql = "select distinct dateV from stocks order by dateV desc;"
+        all = self.dbh.select(sql)
+        if(len(all) > 0 ):
+            return all[0][0]
+        else:
+            return None
+
+    def findGreatThan9ForDay(self,day):
+        sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 0.09 and dateV = '%s' group by symbol order by c desc;" %day
+        all = self.dbh.select(sql)
+        return all
 
 
     def insertStocks(self, symbol, stockDBHash):
