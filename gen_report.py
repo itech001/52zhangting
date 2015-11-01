@@ -8,7 +8,7 @@ symbols = Symbols()
 all_symbols = symbols.getSymbols()
 
 latestDay = 14
-showRecord = 88
+showRecord = 100
 all = stocks.findGreatThan9()
 allIn7Days = stocks.findGreatThan9ForLatest(latestDay)
 
@@ -60,5 +60,9 @@ for r in allIn7Days:
     tr1 << td(in7days)
     tr1 << td(inall)
 
+page << hr()
+page << h5('www.52zhangting.com, qq群：513656027',align='center')
 
-page.printOut('web/myreport/' + todayStr + '.html')
+f = 'web/yaogu/' + todayStr + '.html'
+print("The file %s is generated" %f)
+page.printOut(f)
