@@ -9,12 +9,15 @@ import StockCommon
 
 #date_start = '2015-01-01'
 #date_end = '2015-10-24'
+todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+print("Start:" + todayStrFull)
 
-todayStr = datetime.now().strftime('%Y-%m-%d')
-ago = datetime.now() - timedelta(8)
+todayStr = ( datetime.now() + timedelta(1) ).strftime('%Y-%m-%d')
+ago = datetime.now() - timedelta(3)
 agoStr = ago.strftime('%Y-%m-%d')
 date_start = agoStr
 date_end =  todayStr
+print("update: %s - %s"  % (date_start, date_end) )
 
 sdb = Stocks();
 
@@ -33,4 +36,5 @@ for stock in StockCommon.getAllSymbols2():
 
 sdb.close()
 
-
+todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+print("End:" + todayStrFull)

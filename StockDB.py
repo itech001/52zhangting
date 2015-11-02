@@ -27,7 +27,7 @@ class Stocks:
         self.dbh = SqliteWrapper()
         self.dbh.connect(dbfile)
         print('-------------------------------------')
-        print(dbtable_stocks_create)
+        #print(dbtable_stocks_create)
         self.dbh.execute(dbtable_stocks_create)
 
     def __del__(self):
@@ -115,7 +115,7 @@ class Stocks:
             try:
                 sql = "INSERT INTO " + dbtable_stocks + "(symbol,dateV, open, close, close_adj, high, low, volume,prev_close_to_close,open_to_close,low_to_high) VALUES('%s','%s','%f','%f','%f','%f','%f','%f','%f','%f','%f') " \
                                                         %(symbol,date, open, close, close_adj,high,low,volume,pre_close_to_close,open_to_close,low_to_high);
-                print("\n" + sql)
+                #print("\n" + sql)
                 self.dbh.execute (sql )
                 print("add: %s, %s" % (symbol,date))
             except:
@@ -129,7 +129,7 @@ class Symbols:
         self.dbh = SqliteWrapper()
         self.dbh.connect(dbfile)
         print('-------------------------------------')
-        print(dbtable_symbols_create)
+        #print(dbtable_symbols_create)
         self.dbh.execute(dbtable_symbols_create)
 
     def __del__(self):

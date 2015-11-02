@@ -21,8 +21,8 @@ allTwoWeek = stocks.findGreatThan9ForLatestNum(twoWeek)
 
 domain = "52zhangting.com"
 page = PyH(domain)
-page.addCSS('../bootstrap-3.3.5-dist/css/bootstrap.css', '../bootstrap-3.3.5-dist/css/bootstrap-theme.css', 'bootstrap-3.3.5-dist/css/bootstrap-theme.css.map', '../DataTables-1.10.9/css/dataTables.bootstrap.css', '../Scroller-1.3.0/css/scroller.bootstrap.css', '../Select-1.0.1/css/select.bootstrap.css')
-page.addJS('../jQuery-2.1.4/jquery-2.1.4.js', '../bootstrap-3.3.5-dist/js/bootstrap.js', '../DataTables-1.10.9/js/jquery.dataTables.js','../DataTables-1.10.9/js/dataTables.bootstrap.js','../Scroller-1.3.0/js/dataTables.scroller.js','../Select-1.0.1/js/dataTables.select.js','../my/yaogu.js')
+page.addCSS('../bootstrap-3.3.5-dist/css/bootstrap.min.css', '../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css',  '../DataTables-1.10.9/css/dataTables.bootstrap.min.css')
+page.addJS('../jQuery-2.1.4/jquery-2.1.4.min.js', '../bootstrap-3.3.5-dist/js/bootstrap.min.js', '../DataTables-1.10.9/js/jquery.dataTables.min.js','../DataTables-1.10.9/js/dataTables.bootstrap.min.js','../my/yaogu.js')
 
 #head = page << head()
 #<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -31,7 +31,6 @@ page.addJS('../jQuery-2.1.4/jquery-2.1.4.js', '../bootstrap-3.3.5-dist/js/bootst
 #char.attributes['content'] = 'text/html;charset=utf-8'
 #char << 'http-equiv="Content-Type" content="text/html;charset=utf-8"'
 
-domain = "www.52zhangting.com"
 todayStr = datetime.now().strftime('%Y-%m-%d')
 todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 page << h2('我爱涨停 - ' + todayStrFull,align='center')
@@ -102,7 +101,7 @@ for r in allOneWeek:
     tr1 << td(inall)
 
 page << hr()
-page << h5(domain + ', qq群：513656027',align='center')
+page << h5(domain + ', qq群:513656027',align='center')
 
 f = 'web/yaogu/' + todayStr + '.html'
 fn = re.sub('web/','',f)
