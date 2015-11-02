@@ -482,7 +482,7 @@ def get_historical_prices(symbol, start_date, end_date):
     print(url)
     try:
         req = Request(url)
-        resp = urlopen(req,data=None, timeout=180)
+        resp = urlopen(req,data=None, timeout=120)
         content = str(resp.read().decode('utf-8').strip())
         daily_data = content.splitlines()
         hist_dict = dict()

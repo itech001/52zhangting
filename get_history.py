@@ -13,7 +13,7 @@ todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 print("Start:" + todayStrFull)
 
 todayStr = ( datetime.now() + timedelta(1) ).strftime('%Y-%m-%d')
-ago = datetime.now() - timedelta(3)
+ago = datetime.now() - timedelta(2)
 agoStr = ago.strftime('%Y-%m-%d')
 date_start = agoStr
 date_end =  todayStr
@@ -26,6 +26,7 @@ for stock in StockCommon.getAllSymbols2():
     #if(stock < '600008'): continue
     #if(re.search('318$',stock)): continue
     symbol,symbol_y = StockCommon.symbolFormat(stock)
+    print('-------------------------------------')
     print(symbol_y)
     #has = sdb.findStocksBySymbol(symbol)
     #if(len(has)):

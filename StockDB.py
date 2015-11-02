@@ -87,7 +87,7 @@ class Stocks:
     def insertStocks(self, symbol, stockDBHash):
         if stockDBHash is None:
             return
-        print('-------------------------------------')
+        #print('-------------------------------------')
         prev_close = self.getLatestClose(symbol)
         ks = stockDBHash.keys()
         for date in sorted(ks):
@@ -138,8 +138,8 @@ class Symbols:
     def insertSymbol(self, symbol, name):
         try:
             sql = "INSERT INTO " + dbtable_symbols + "(symbol,name) VALUES('%s','%s') " %(symbol,name)
-            print('-------------------------------------')
-            print(sql)
+            #print('-------------------------------------')
+            #print(sql)
             self.dbh.execute (sql )
             print("add: %s, %s" % (symbol,name))
         except Exception as e:
