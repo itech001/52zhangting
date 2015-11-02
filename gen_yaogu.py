@@ -43,7 +43,8 @@ links = {'概念板块':'http://stock.jrj.com.cn/concept/conceptList.shtml?sort=
         '高管持股':'http://data.10jqka.com.cn/financial/ggjy/',
         '投资日历':'http://stock.10jqka.com.cn/fincalendar.shtml',
         '每日复盘':'http://stock.10jqka.com.cn/fupan/',
-        '涨停板复盘':'http://finance.ifeng.com/news/special/ztbfp/index.shtml'}
+        '涨停板复盘':'http://finance.ifeng.com/news/special/ztbfp/index.shtml',
+         '下周预测':'http://stock.10jqka.com.cn/gushiyuce/'}
 for k in links.keys():
     v = links[k]
     div0 << a(k,href=v)
