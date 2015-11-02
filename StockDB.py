@@ -26,7 +26,7 @@ class Stocks:
     def __init__(self):
         self.dbh = SqliteWrapper()
         self.dbh.connect(dbfile)
-        print('-------------------------------------')
+        #print('-------------------------------------')
         #print(dbtable_stocks_create)
         self.dbh.execute(dbtable_stocks_create)
 
@@ -128,7 +128,7 @@ class Symbols:
     def __init__(self):
         self.dbh = SqliteWrapper()
         self.dbh.connect(dbfile)
-        print('-------------------------------------')
+        #print('-------------------------------------')
         #print(dbtable_symbols_create)
         self.dbh.execute(dbtable_symbols_create)
 
