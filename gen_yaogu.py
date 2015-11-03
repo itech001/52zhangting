@@ -106,7 +106,7 @@ for r in allOneWeek:
     tr1 << td(inall)
 
 page << hr()
-page << h5(domain + ', qq群:513656027',align='center')
+page << h5(domain + ', qq群:513656027', align='center')
 
 f = 'web/yaogu/' + todayStr + '.html'
 fn = re.sub('web/','',f)
