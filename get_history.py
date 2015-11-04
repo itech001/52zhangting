@@ -9,17 +9,19 @@ import StockCommon
 
 #date_start = '2015-01-01'
 #date_end = '2015-10-24'
-todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-print("Start:" + todayStrFull)
+nowStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+print("Start:" + nowStrFull)
 
-todayStr = ( datetime.now() + timedelta(1) ).strftime('%Y-%m-%d')
-ago = datetime.now() - timedelta(2)
+todayStr = ( datetime.now() - timedelta(1)).strftime('%Y-%m-%d')
+tomorrowStr = ( datetime.now() + timedelta(1) ).strftime('%Y-%m-%d')
+ago = datetime.now() - timedelta(3)
 agoStr = ago.strftime('%Y-%m-%d')
 date_start = agoStr
-date_end =  todayStr
+date_end =  tomorrowStr
 print("update: %s - %s"  % (date_start, date_end) )
 
 sdb = Stocks();
+
 
 for stock in StockCommon.getAllSymbols2():
 #for stock in ['600008']:
@@ -32,10 +34,14 @@ for stock in StockCommon.getAllSymbols2():
     #if(len(has)):
     #    print("existed:" + symbol_y)
     #    continue
+    s = sdb.findStockBySymbolAndDate(symbol,todayStr)
+    if s is not None:
+        print("existed: %s-%s" % (symbol, todayStr))
+        continue
     all = ystockquote.get_historical_prices(symbol_y,date_start, date_end)
     sdb.insertStocks(symbol,all)
 
 sdb.close()
 
-todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-print("End:" + todayStrFull)
+nowStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+print("End:" + nowStrFull)
