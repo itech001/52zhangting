@@ -12,7 +12,7 @@ import StockCommon
 nowStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 print("Start:" + nowStrFull)
 
-todayStr = ( datetime.now() - timedelta(1)).strftime('%Y-%m-%d')
+todayStr = ( datetime.now() - timedelta(0)).strftime('%Y-%m-%d')
 tomorrowStr = ( datetime.now() + timedelta(1) ).strftime('%Y-%m-%d')
 ago = datetime.now() - timedelta(3)
 agoStr = ago.strftime('%Y-%m-%d')
