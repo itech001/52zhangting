@@ -1,3 +1,5 @@
-Title: 关于
+Title: 网站介绍
 
-This is the content of my super blog post.
+依据股市的强者恒强规律，帮你捕获牛股妖股。　　
+　　
+　　

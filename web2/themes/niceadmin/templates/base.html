@@ -23,6 +23,7 @@
 
     <link href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}" rel="stylesheet" type="text/css"/>
     <link href="{{ SITEURL }}/theme/css/pygment.css" rel="stylesheet" type="text/css"/>
+    <link href="{{ SITEURL }}/theme/DataTables-1.10.9／css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <script src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_content.js"></script>
     <link href="{{ SITEURL }}/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
     <script src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
@@ -87,7 +88,7 @@
                   <li class="">
                       <a class="" href="{{ SITEURL }}/index.html">
                           <i class="icon_house_alt"></i>
-                          <span>最近涨停</span>
+                          <span>主页</span>
                       </a>
                   </li>
 
@@ -111,7 +112,7 @@
                   <li {% if page_iter == page %}class="active"{% endif %}>
                   <a class="" href="{{ SITEURL }}/{{ page_iter.url }}">
                   <i class="icon_star_alt"></i>
-                　<span>{{ page_iter.title }}</span>
+                  <span>{{ page_iter.title }}</span>
                   </a>
                   </li>
             {% endfor %}
@@ -133,11 +134,11 @@
 				  <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon_mail_alt"></i>
-                          <span>关于</span>
+                          <span>其他</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="form_component.html">作者</a></li>
+                          <li><a class="" href="form_component.html">版权</a></li>
                           <li><a class="" href="form_validation.html">投稿</a></li>
                       </ul>
           </li>
@@ -175,11 +176,12 @@
     <!-- javascripts -->
     <script src="{{ SITEURL }}/theme/js/jquery.js"></script>
     <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
+    <script src="{{ SITEURL }}/theme/DataTables-1.10.9/js/dataTables.bootstrap.min.js"></script>
+    <script src="{{ SITEURL }}/theme/DataTables-1.10.9/js/jquery.dataTables.min.js"></script>
     <!-- nice scroll -->
     <script src="{{ SITEURL }}/theme/js/jquery.scrollTo.min.js"></script>
     <script src="{{ SITEURL }}/theme/js/jquery.nicescroll.js" type="text/javascript"></script><!--custome script for all page-->
     <script src="{{ SITEURL }}/theme/js/scripts.js"></script>
-
-
+    <script src="{{ SITEURL }}/theme/my/yaogu.js"></script>
   </body>
 </html>

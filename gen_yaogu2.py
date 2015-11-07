@@ -21,7 +21,7 @@ allTwoWeek = stocks.findGreatThan9ForLatestNum(twoWeek)
 todayStr = datetime.now().strftime('%Y-%m-%d')
 todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-title = "一周涨停"
+title = "最近涨停"
 
 page = PyH(title)
 page.addCSS('../bootstrap-3.3.5-dist/css/bootstrap.min.css', '../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css',  '../DataTables-1.10.9/css/dataTables.bootstrap.min.css')
@@ -37,8 +37,8 @@ page.addJS('../jQuery-2.1.4/jquery-2.1.4.min.js', '../bootstrap-3.3.5-dist/js/bo
 div0 = page << div(align='center')
 
 
-page << hr()
-page << h5(todayStrFull, align='center')
+#page << hr()
+#page << h5("最后跟新：" + todayStrFull, align='center')
 mydiv1 = page << div(id='myDiv1')
 mydiv1.attributes['class'] = 'container'
 mydiv2 = mydiv1 << div(id='myDiv2')
