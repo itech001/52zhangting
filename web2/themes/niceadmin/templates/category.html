@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category }} - {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<h5  align=center><i class="fa fa fa-bars"></i> {{ category.title }} </h5>
+{{ category.content }}
+{% endblock content %}

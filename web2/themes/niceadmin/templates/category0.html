@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ category }} - {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<h5 class="page-header"><i class="fa fa fa-bars"></i> {{ category.title }} </h5>
+<ol class="breadcrumb">
+  <li><i class="fa fa-home"></i><a href="{{ SITEURL }}/index.html">主页</a></li>
+  <li><i class="fa fa-bars"></i><a href="{{ SITEURL }}/{{category.url}}">{{ page.title }}</a></li>
+</ol>
+{% endblock content %}
