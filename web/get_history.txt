@@ -1,220 +1,35 @@
-Start:2015-11-06 18:04:31
-update: 2015-11-03 - 2015-11-07
+Start:2015-11-08 08:08:51
+update: 2015-11-05 - 2015-11-09
 -------------------------------------
 000001.SS
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000001.SS&b=3&e=7
-existed: 000001, 2015-11-03
-existed: 000001, 2015-11-04
+http://real-chart.finance.yahoo.com/table.csv?ignore=.csv&f=2015&s=000001.SS&g=d&c=2015&b=5&a=10&d=10&e=9
 existed: 000001, 2015-11-05
-add: 000001, 2015-11-06
+existed: 000001, 2015-11-06
 -------------------------------------
 000002.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000002.SZ&b=3&e=7
-existed: 000002, 2015-11-03
-existed: 000002, 2015-11-04
+http://real-chart.finance.yahoo.com/table.csv?ignore=.csv&f=2015&s=000002.SZ&g=d&c=2015&b=5&a=10&d=10&e=9
 existed: 000002, 2015-11-05
-add: 000002, 2015-11-06
+existed: 000002, 2015-11-06
 -------------------------------------
 000004.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000004.SZ&b=3&e=7
-existed: 000004, 2015-11-03
-existed: 000004, 2015-11-04
+http://real-chart.finance.yahoo.com/table.csv?ignore=.csv&f=2015&s=000004.SZ&g=d&c=2015&b=5&a=10&d=10&e=9
 existed: 000004, 2015-11-05
-add: 000004, 2015-11-06
+existed: 000004, 2015-11-06
 -------------------------------------
 000005.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000005.SZ&b=3&e=7
-existed: 000005, 2015-11-03
-existed: 000005, 2015-11-04
-existed: 000005, 2015-11-05
-add: 000005, 2015-11-06
+http://real-chart.finance.yahoo.com/table.csv?ignore=.csv&f=2015&s=000005.SZ&g=d&c=2015&b=5&a=10&d=10&e=9
 -------------------------------------
 000006.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000006.SZ&b=3&e=7
-existed: 000006, 2015-11-03
-existed: 000006, 2015-11-04
+http://real-chart.finance.yahoo.com/table.csv?ignore=.csv&f=2015&s=000006.SZ&g=d&c=2015&b=5&a=10&d=10&e=9
 existed: 000006, 2015-11-05
-add: 000006, 2015-11-06
+existed: 000006, 2015-11-06
 -------------------------------------
 000007.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000007.SZ&b=3&e=7
-existed: 000007, 2015-11-03
-existed: 000007, 2015-11-04
-existed: 000007, 2015-11-05
-add: 000007, 2015-11-06
--------------------------------------
-000008.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000008.SZ&b=3&e=7
-existed: 000008, 2015-11-03
-existed: 000008, 2015-11-04
-add: 000008, 2015-11-05
-add: 000008, 2015-11-06
--------------------------------------
-000009.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000009.SZ&b=3&e=7
-existed: 000009, 2015-11-03
-existed: 000009, 2015-11-04
-existed: 000009, 2015-11-05
-add: 000009, 2015-11-06
--------------------------------------
-000010.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000010.SZ&b=3&e=7
-existed: 000010, 2015-11-03
-existed: 000010, 2015-11-04
-existed: 000010, 2015-11-05
-add: 000010, 2015-11-06
--------------------------------------
-000011.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000011.SZ&b=3&e=7
-existed: 000011, 2015-11-03
-existed: 000011, 2015-11-04
-existed: 000011, 2015-11-05
-add: 000011, 2015-11-06
--------------------------------------
-000012.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000012.SZ&b=3&e=7
-existed: 000012, 2015-11-03
-existed: 000012, 2015-11-04
-existed: 000012, 2015-11-05
-add: 000012, 2015-11-06
--------------------------------------
-000014.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000014.SZ&b=3&e=7
-existed: 000014, 2015-11-03
-existed: 000014, 2015-11-04
-existed: 000014, 2015-11-05
-add: 000014, 2015-11-06
--------------------------------------
-000016.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000016.SZ&b=3&e=7
-existed: 000016, 2015-11-03
-existed: 000016, 2015-11-04
-existed: 000016, 2015-11-05
-add: 000016, 2015-11-06
--------------------------------------
-000017.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000017.SZ&b=3&e=7
-existed: 000017, 2015-11-03
-existed: 000017, 2015-11-04
-existed: 000017, 2015-11-05
-add: 000017, 2015-11-06
--------------------------------------
-000018.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000018.SZ&b=3&e=7
-existed: 000018, 2015-11-03
-existed: 000018, 2015-11-04
-existed: 000018, 2015-11-05
-add: 000018, 2015-11-06
--------------------------------------
-000019.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000019.SZ&b=3&e=7
-existed: 000019, 2015-11-03
-existed: 000019, 2015-11-04
-existed: 000019, 2015-11-05
-add: 000019, 2015-11-06
--------------------------------------
-000020.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000020.SZ&b=3&e=7
-existed: 000020, 2015-11-03
-existed: 000020, 2015-11-04
-existed: 000020, 2015-11-05
-add: 000020, 2015-11-06
--------------------------------------
-000021.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000021.SZ&b=3&e=7
-existed: 000021, 2015-11-03
-existed: 000021, 2015-11-04
-existed: 000021, 2015-11-05
-add: 000021, 2015-11-06
--------------------------------------
-000022.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000022.SZ&b=3&e=7
-existed: 000022, 2015-11-03
-existed: 000022, 2015-11-04
-existed: 000022, 2015-11-05
-add: 000022, 2015-11-06
--------------------------------------
-000023.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000023.SZ&b=3&e=7
-existed: 000023, 2015-11-03
-existed: 000023, 2015-11-04
-existed: 000023, 2015-11-05
-add: 000023, 2015-11-06
--------------------------------------
-000024.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000024.SZ&b=3&e=7
-existed: 000024, 2015-11-03
-existed: 000024, 2015-11-04
-existed: 000024, 2015-11-05
-add: 000024, 2015-11-06
--------------------------------------
-000025.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000025.SZ&b=3&e=7
-existed: 000025, 2015-11-03
-existed: 000025, 2015-11-04
-existed: 000025, 2015-11-05
-add: 000025, 2015-11-06
--------------------------------------
-000026.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000026.SZ&b=3&e=7
-existed: 000026, 2015-11-03
-existed: 000026, 2015-11-04
-existed: 000026, 2015-11-05
-add: 000026, 2015-11-06
--------------------------------------
-000027.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000027.SZ&b=3&e=7
-existed: 000027, 2015-11-03
-existed: 000027, 2015-11-04
-existed: 000027, 2015-11-05
-add: 000027, 2015-11-06
--------------------------------------
-000028.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000028.SZ&b=3&e=7
-existed: 000028, 2015-11-03
-existed: 000028, 2015-11-04
-existed: 000028, 2015-11-05
-add: 000028, 2015-11-06
--------------------------------------
-000029.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000029.SZ&b=3&e=7
-existed: 000029, 2015-11-03
-existed: 000029, 2015-11-04
-existed: 000029, 2015-11-05
-add: 000029, 2015-11-06
--------------------------------------
-000030.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000030.SZ&b=3&e=7
-existed: 000030, 2015-11-03
-existed: 000030, 2015-11-04
-existed: 000030, 2015-11-05
-add: 000030, 2015-11-06
--------------------------------------
-000031.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000031.SZ&b=3&e=7
-existed: 000031, 2015-11-03
-existed: 000031, 2015-11-04
-existed: 000031, 2015-11-05
-add: 000031, 2015-11-06
--------------------------------------
-000032.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000032.SZ&b=3&e=7
-existed: 000032, 2015-11-03
-existed: 000032, 2015-11-04
-existed: 000032, 2015-11-05
-add: 000032, 2015-11-06
--------------------------------------
-000034.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000034.SZ&b=3&e=7
-existed: 000034, 2015-11-03
-existed: 000034, 2015-11-04
-existed: 000034, 2015-11-05
-add: 000034, 2015-11-06
--------------------------------------
-000035.SZ
-http://real-chart.finance.yahoo.com/table.csv?f=2015&ignore=.csv&a=10&c=2015&d=10&g=d&s=000035.SZ&b=3&e=7
-existed: 000035, 2015-11-03
-existed: 000035, 2015-11-04
-add: 000035, 2015-11-05
-add: 000035, 2015-11-06
--------------------------------------
+Traceback (most recent call last):
+  File "get_history.py", line 37, in <module>
+    s = sdb.findStockBySymbolAndDate(symbol,todayStr)
+  File "/home/adminuser/github/52zhangting/StockDB.py", line 39, in findStockBySymbolAndDate
+    all = self.dbh.select(sql)
+  File "/home/adminuser/github/52zhangting/SqliteWrapper.py", line 27, in select
+    self.__cursor.execute(sql)
+KeyboardInterrupt
