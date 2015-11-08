@@ -3,6 +3,7 @@ python:
   - 3.4
 install:
   - sudo apt-get install git
+  - pip3 install beautifulsoup4
   - pip3 install pelican
   - pip3 install ghp-import
 script:
