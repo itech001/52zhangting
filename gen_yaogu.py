@@ -109,8 +109,9 @@ page << hr()
 page << h5(domain + ', qq群:513656027', align='center')
 
 f = 'web/yaogu/' + todayStr + '.html'
-fn = re.sub('web/','',f)
+fn = re.sub('web/yaogu/','',f)
 print("%s is generated" %f)
 page.printOut(f)
-os.remove('web/index.html')
-os.symlink('./' + fn,'web/index.html')
+if os.path.exists('web/yaogu/index.html'):
+    os.remove('web/yaogu/index.html')
+os.symlink('./' + fn,'web/yaogu/index.html')
