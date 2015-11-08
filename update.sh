@@ -21,8 +21,10 @@ python gen_yaogu2.py
 echo generate website
 cd web2/
 make publish
-mkdir v1
-cp -rf ../web/* v1/
+cp 404.html output/
+mkdir output/v1
+cp -rf ../web/* output/v1/
+cd ../
 
 #submit
 #git add .

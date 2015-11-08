@@ -7,13 +7,10 @@ install:
   - pip3 install pelican
   - pip3 install ghp-import
 script:
-  - python gen_yaogu.py
-  - python gen_yaogu2.py
-  - cd web2 && make publish
+  - ./update.sh
 after_success:
   - echo OK
-  - cp 404.html web/.
-  - ghp-import -n web2/output -m "update by travis-ci"
+  - ghp-import -n web/output -m "update by travis-ci"
   - git push -qf https://${TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git gh-pages
 after_failure:
   - echo failed
