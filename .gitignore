@@ -1,3 +1,5 @@
 __pycache__/*
+web2/__pycache__/*
+web2/cache/*
 .idea/*
 *.pyc
