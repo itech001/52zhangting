@@ -11,7 +11,8 @@ done
 if [ "$history" = "yes" ]
 then
    echo get history
-   python get_history.py > web/get_history.txt 2>&1
+   python get_history.py
+   #python get_history.py > web/get_history.txt 2>&1
 fi
 
 echo generate pages
@@ -21,7 +22,7 @@ python gen_yaogu2.py
 echo generate website
 cd web2/
 make publish
-cp 404.html output/
+#cp output/others/404.html output/
 mkdir output/v1
 cp -rf ../web/* output/v1/
 cd ../
