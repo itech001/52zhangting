@@ -1,0 +1,10 @@
+get history
+python: can't open file 'get_history.py': [Errno 2] No such file or directory
+generate pages
+python: can't open file 'gen_yaogu.py': [Errno 2] No such file or directory
+python: can't open file 'gen_yaogu2.py': [Errno 2] No such file or directory
+generate website
+/home/adminuser/github/52zhangting/update.sh: 23: cd: can't cd to web2/
+make: *** No rule to make target 'publish'.  Stop.
+mkdir: cannot create directory ‘output/v1’: No such file or directory
+cp: cannot stat ‘../web/*’: No such file or directory
