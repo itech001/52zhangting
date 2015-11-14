@@ -18,6 +18,7 @@ fi
 echo generate pages
 python gen_yaogu.py
 python gen_yaogu2.py
+python gen_qushi.py
 
 echo generate website
 cd web2/
