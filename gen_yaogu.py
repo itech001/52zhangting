@@ -1,3 +1,4 @@
+#coding=utf-8
 import os
 import re
 from  datetime  import  *
@@ -15,8 +16,8 @@ showRecord = 2000
 latestDate = stocks.getLatestDate();
 latest = stocks.findGreatThan9ForDay(latestDate)
 all = stocks.findGreatThan9()
-allOneWeek = stocks.findGreatThan9ForLatestNum(oneWeek)
-allTwoWeek = stocks.findGreatThan9ForLatestNum(twoWeek)
+allOneWeek = stocks.findGreatThan9ForLatestDays(oneWeek)
+allTwoWeek = stocks.findGreatThan9ForLatestDays(twoWeek)
 
 
 domain = "52zhangting.com"
