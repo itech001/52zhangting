@@ -130,6 +130,23 @@ class Stocks:
             except:
                 print("Failed: " + symbol + ' ' + date )
 
+    def insertStocksSina(self, symbol, stock):
+        if stock is None:
+            return
+        #print('-------------------------------------')
+        find = self.findStockBySymbolAndDate(symbol,stock.dateV)
+        if find is not None:
+            print("existed: %s, %s" % (symbol,stock.dateV) )
+            return
+        try:
+            sql = "INSERT INTO " + dbtable_stocks + "(symbol,dateV, open, close, close_adj, high, low, volume,prev_close_to_close,open_to_close,low_to_high) VALUES('%s','%s','%f','%f','%f','%f','%f','%f','%f','%f','%f') " \
+                                                        %(stock.symbol,stock.dateV, stock.open, stock.close, stock.close_adj,stock.high,stock.low,stock.volume,stock.pre_close_to_close,stock.open_to_close,stock.low_to_high);
+            #print("\n" + sql)
+            self.dbh.execute (sql )
+            print("add: %s, %s" % (symbol,stock.dateV))
+        except:
+            print("Failed: " + symbol + ' ' + stock.dateV )
+
     def close(self):
         self.dbh.close()
 
@@ -152,7 +169,7 @@ class Symbols:
             self.dbh.execute (sql )
             print("add: %s, %s" % (symbol,name))
         except Exception as e:
-            print(e )
+            print(e)
 
     def getSymbols(self):
         try:

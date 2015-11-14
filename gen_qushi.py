@@ -9,59 +9,64 @@ from pyh import *
 stocks = Stocks()
 symbols = Symbols()
 
+alldata = {}
+
+#shangzheng
+shangzheng = stocks.findStocksBySymbol('sh000001') #shangzheng zhishu
+for s in shangzheng:
+    alldata[s.dateV] = {'shangzheng': s.close}
+
+#zhang die
 zhang = stocks.findGreaterCounts(0.09)
 die = stocks.findLessCounts(-0.09)
-num = len(zhang)
-num1 = len(die)
-if num1 > num:
-    max = num1
-else:
-    max = num
+for s in zhang:
+    num = s[0]
+    date = s[1]
+    allkeys = alldata.keys()
+    if date in allkeys:
+        tmp = alldata[date]
+        tmp['zhangting'] = num
+    else:
+        alldata[date] = {'zhangting':num}
+for s in die:
+    num = s[0]
+    date = s[1]
+    allkeys = alldata.keys()
+    if date in allkeys:
+        tmp = alldata[date]
+        tmp['dieting'] = num
+    else:
+        alldata[date] = {'dieting':num}
 
-zhang_str = '['
-die_str = '['
+shangzheng_str = '['
+zhangting_str = '['
+dieting_str = '['
 date_str = '['
-i = 0
-j = 0
-while(i < max):
-  if j >= num1:
-      zhang_str += str(zhang[i][0]) + ','
-      die_str += '0' + ','
-      date_str = date_str + "'" + str(zhang[i][1]) + "',"
-      print(str(zhang[i][1]) + 'zhang:' + str(zhang[i][0]) + 'die:0')
-      i += 1
-  elif i >= num:
-      die_str += str(die[j][0]) + ','
-      zhang_str += '0' + ','
-      date_str = date_str + "'" + str(die[j][1]) + "',"
-      print(str(die[j][1]))
-      j += 1
-  elif zhang[i][1] == die[j][1]:
-      zhang_str += str(zhang[i][0]) + ','
-      die_str += str(die[j][0]) + ','
-      date_str = date_str + "'" + str(zhang[i][1]) + "',"
-      print(str(zhang[i][1]) + 'zhang:' + str(zhang[i][0]) + 'die:' + str(die[j][0]))
-      i += 1
-      j += 1
-  elif zhang[i][1] < die[j][1]:
-      zhang_str += str(zhang[j][0]) + ','
-      die_str += '0' + ','
-      date_str = date_str + "'" + str(zhang[i][1]) + "',"
-      print(str(zhang[i][1]))
-      i += 1
 
-  else:
-      die_str += str(die[j][0]) + ','
-      zhang_str += '0' + ','
-      date_str = date_str + "'" + str(die[j][1]) + "',"
-      print(str(die[j][1]))
-      j += 1
+prev_shangzheng = 0
+for date in sorted(alldata.keys()):
+    hash = alldata[date]
+    keys = hash.keys()
+    if "shangzheng" in keys:
+        v = int(hash["shangzheng"] / 2)
+        shangzheng_str += str(v ) + ','
+        prev_shangzheng = v
+    else:
+        shangzheng_str += str(prev_shangzheng) + ','
+    if "zhangting" in keys:
+        zhangting_str += str(hash["zhangting"]) + ','
+    else:
+        zhangting_str += '0,'
+    if "dieting" in keys:
+        dieting_str += str(hash["dieting"]) + ','
+    else:
+        dieting_str += '0,'
+    date_str += "'" + date + "',"
 
 
-  print("i %i, j %i" % (i,j))
-
-zhang_str += ']'
-die_str += ']'
+shangzheng_str += ']'
+zhangting_str += ']'
+dieting_str += ']'
 date_str += ']'
 
 todayStr = datetime.now().strftime('%Y-%m-%d')
@@ -108,7 +113,7 @@ option = {
         trigger: 'axis'
     },
     legend: {
-        data:['涨停股数','跌停股数']
+        data:['上证指数','涨停股数','跌停股数']
     },
     calculable : true,
     dataZoom : {
@@ -128,9 +133,26 @@ option = {
     yAxis : [
         {
             type : 'value',
+            splitNumber: 15,
         }
     ],
     series : [
+        {
+            name:'上证指数',
+            type:'line',
+            data:%s,
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
         {
             name:'涨停股数',
             type:'line',
@@ -172,7 +194,7 @@ option = {
         );
     </script>
 </body>
-""" % (title,todayStrFull,date_str,zhang_str,die_str)
+""" % (title,todayStrFull,date_str,shangzheng_str,zhangting_str,dieting_str)
 
 
 def writeFile(outPath,content):
@@ -184,10 +206,12 @@ def writeFile(outPath,content):
     else:
         print ("Error Opening File.")
 
-if os.path.exists('web2/content/pages/qushi.html'):
-    os.remove('web2/content/pages/qushi.html')
+filename = 'web2/content/pages/qushi.html'
+if os.path.exists(filename):
+    os.remove(filename)
 
-writeFile('web2/content/pages/qushi.html',html)
+writeFile(filename,html)
+print(filename)
 
 
 

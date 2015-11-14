@@ -1,9 +1,11 @@
 import re
 import urllib.request
 from StockDB import Symbols
+from Stock import Stock
+
 
 ChinaStockIndexList = [
-    "000001", # sh000001 上证指数
+    "sh000001", # sh000001 上证指数
     "399001", # sz399001 深证成指
     "000300", # sh000300 沪深300
     "399005", # sz399005 中小板指
@@ -34,11 +36,13 @@ def symbolFormat(symbol_number):
     symbol = symbol.rjust(6,'0')
     symbol_yahoo = ''
     if(symbol == '000001'):
-        symbol_yahoo = symbol + '.SS'
+        symbol_yahoo = symbol + '.SZ'
     elif(symbol == '399001'):
         symbol_yahoo =  symbol + 'SZ'
     elif(symbol == '399006'):
         symbol_yahoo = symbol + '.SZ'
+    elif(symbol == 'sh000001'):
+        symbol_yahoo = '000001.SS'
     elif(re.search('^60',symbol) != None):
         symbol_yahoo = symbol + '.SS'
     elif(re.search('^30',symbol) != None):
@@ -79,9 +83,15 @@ def getAllSymbols2():
 
 #getAllSymbols2()
 
-def getStock(stockCode, period):
+def getStock(stockCode, todayStr):
     try:
-        exchange = "sh" if (int(stockCode) // 100000 == 6) else "sz"
+        exchange = "sz"
+        if stockCode =='sh000001':
+            exchange =''
+        elif(int(stockCode) // 100000 != 6) :
+            exchange ='sz'
+        else:
+            exchange = 'sh'
         dataUrl = "http://hq.sinajs.cn/list=" + exchange + stockCode
         stdout = urllib.request.urlopen(dataUrl)
         stdoutInfo = stdout.read().decode('gb2312')
@@ -98,7 +108,16 @@ def getStock(stockCode, period):
         stockRange  = round(float(stockUp) / float(stockLastEnd), 4) * 100
         stockVolume = round(float(stockInfo[8]) / (100 * 10000), 2)
         stockMoney  = round(float(stockInfo[9]) / (100000000), 2)
+        stockDate = stockInfo[30]
         stockTime   = stockInfo[31]
+
+        is_close_price = 1
+        if stockTime < '15:00:00' and todayStr <= stockDate:
+            print("The stock market still is openning, this is not the close price")
+            is_close_price = 0
+        else:
+            is_close_price = 1
+
 
         content = "#" + stockName + "#(" + stockCode + ")" + " 开盘:" + stockStart \
         + ",最新:" + stockCur + ",最高:" + stockMax + ",最低:" + stockMin \
@@ -106,15 +125,17 @@ def getStock(stockCode, period):
         + ",总手:" + str(stockVolume) + "万" + ",金额:" + str(stockMoney) \
         + "亿" + ",更新时间:" + stockTime + "  "
 
-        imgUrl = "http://image.sinajs.cn/newchart/" + period + "/n/" + exchange + str(stockCode) + ".gif"
-        twitter = {'message': content, 'image': imgUrl}
+        #imgUrl = "http://image.sinajs.cn/newchart/" + period + "/n/" + exchange + str(stockCode) + ".gif"
+
+        open_to_close = round((float(stockCur) - float(stockStart))/float(stockStart),4)
+        low_to_high =  round((float(stockMax) - float(stockMin))/float(stockMin),4)
+        s = Stock(stockCode,stockDate,stockStart,stockCur,stockCur,stockMax,stockMin,stockVolume,stockRange,open_to_close,low_to_high)
 
     except Exception as e:
         print(">>>>>> Exception: " + str(e))
-    else:
-        return twitter
-    finally:
-        None
+        return None,is_close_price
+
+    return s, is_close_price
 
 def getStockName(stockCode):
     try:
