@@ -88,6 +88,10 @@ class Stocks:
         all = self.dbh.select(sql)
         return all
 
+    def findGreatThan9ForDay(self,day):
+        sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 0.09 and dateV = '%s' group by symbol order by c desc;" %day
+        all = self.dbh.select(sql)
+        return all
 
     def insertStocks(self, symbol, stockDBHash):
         if stockDBHash is None:

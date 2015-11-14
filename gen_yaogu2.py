@@ -13,12 +13,14 @@ all_symbols = symbols.getSymbols()
 
 oneWeek = 7
 twoWeek = 14
+oneMonth = 30
 showRecord = 2000
 latestDate = stocks.getLatestDate();
 latest = stocks.findGreatThan9ForDay(latestDate)
 all = stocks.findGreatThan9()
 allOneWeek = stocks.findGreatThan9ForLatestDays(oneWeek)
 allTwoWeek = stocks.findGreatThan9ForLatestDays(twoWeek)
+allOneMonth = stocks.findGreatThan9ForLatestDays(oneMonth)
 
 todayStr = datetime.now().strftime('%Y-%m-%d')
 todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -57,6 +59,7 @@ tr1 << th('名字')
 tr1 << th(latestDate)
 tr1 << th('最近1周')
 tr1 << th('最近２周')
+tr1 << th('最近２月')
 tr1 << th('2015')
 
 tbody1 = table1 << tbody(id='tboday1')
@@ -71,6 +74,12 @@ for r in allOneWeek:
     for r1 in allTwoWeek:
         if(symbol == r1[0]):
             inTwoWeek = r1[1]
+            break
+
+    inOneMonth = 0
+    for r4 in allOneMonth:
+        if(symbol == r4[0]):
+            inTwoWeek = r4[1]
             break
 
     inall = 0
@@ -94,6 +103,7 @@ for r in allOneWeek:
     tr1 << td(inlatest)
     tr1 << td(inOneWeek)
     tr1 << td(inTwoWeek)
+    tr1 << td(inOneMonth)
     tr1 << td(inall)
 
 f = 'web2/yaogu/' + todayStr + '.html'
