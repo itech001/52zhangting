@@ -59,7 +59,7 @@ tr1 << th('名字')
 tr1 << th(latestDate)
 tr1 << th('最近1周')
 tr1 << th('最近２周')
-tr1 << th('最近２月')
+tr1 << th('最近1月')
 tr1 << th('2015')
 
 tbody1 = table1 << tbody(id='tboday1')
@@ -79,7 +79,7 @@ for r in allOneWeek:
     inOneMonth = 0
     for r4 in allOneMonth:
         if(symbol == r4[0]):
-            inTwoWeek = r4[1]
+            inOneMonth = r4[1]
             break
 
     inall = 0
