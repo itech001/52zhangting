@@ -53,12 +53,12 @@ class Stocks:
         return stockList
 
     def findGreatThan9(self):
-        sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 0.09 group by symbol order by c desc;"
+        sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 9 group by symbol order by c desc;"
         all = self.dbh.select(sql)
         return all
 
     def findGreatThan9ForLatestDays(self,num):
-        sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 0.09 and dateV > date('now','-%i days') group by symbol order by c desc;" %num
+        sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 9 and dateV > date('now','-%i days') group by symbol order by c desc;" %num
         all = self.dbh.select(sql)
         return all
 
@@ -89,7 +89,12 @@ class Stocks:
         return all
 
     def findGreatThan9ForDay(self,day):
-        sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 0.09 and dateV = '%s' group by symbol order by c desc;" %day
+        sql = "select symbol,count(dateV) as c from stocks where prev_close_to_close > 9 and dateV = '%s' group by symbol order by c desc;" %day
+        all = self.dbh.select(sql)
+        return all
+
+    def findGreatThan9ForDay2(self,day):
+        sql = "select symbol,low_to_high,prev_close_to_close as c from stocks where prev_close_to_close > 9 and dateV = '%s' group by symbol order by c desc;" %day
         all = self.dbh.select(sql)
         return all
 
@@ -109,13 +114,13 @@ class Stocks:
             volume = float(value['Volume'])
             pre_close_to_close = 0
             if(prev_close != 0):
-                pre_close_to_close = (close - prev_close) / prev_close
+                pre_close_to_close = round((close - prev_close) / prev_close,4)
             open_to_close = 0
             if(open != 0):
-                open_to_close = (close -open) / open
+                open_to_close = round((close -open) / open,4)
             low_to_high = 0
             if(low != 0):
-                low_to_high = (high - low) / low
+                low_to_high = round((high - low) / low,4)
             prev_close = close
             find = self.findStockBySymbolAndDate(symbol,date)
             if find is not None:

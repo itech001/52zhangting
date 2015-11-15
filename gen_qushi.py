@@ -17,8 +17,8 @@ for s in shangzheng:
     alldata[s.dateV] = {'shangzheng': s.close}
 
 #zhang die
-zhang = stocks.findGreaterCounts(0.09)
-die = stocks.findLessCounts(-0.09)
+zhang = stocks.findGreaterCounts(9)
+die = stocks.findLessCounts(-9)
 for s in zhang:
     num = s[0]
     date = s[1]
