@@ -114,13 +114,13 @@ class Stocks:
             volume = float(value['Volume'])
             pre_close_to_close = 0
             if(prev_close != 0):
-                pre_close_to_close = round((close - prev_close) / prev_close,4)
+                pre_close_to_close = round((close - prev_close) / prev_close,2)
             open_to_close = 0
             if(open != 0):
-                open_to_close = round((close -open) / open,4)
+                open_to_close = round((close -open) / open,2)
             low_to_high = 0
             if(low != 0):
-                low_to_high = round((high - low) / low,4)
+                low_to_high = round((high - low) / low,2)
             prev_close = close
             find = self.findStockBySymbolAndDate(symbol,date)
             if find is not None:
