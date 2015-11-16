@@ -12,6 +12,7 @@ if [ "$history" = "yes" ]
 then
    echo get history
    python get_history.py
+   python get_latest_sina.py
    #python get_history.py > web/get_history.txt 2>&1
 fi
 

@@ -114,13 +114,13 @@ class Stocks:
             volume = float(value['Volume'])
             pre_close_to_close = 0
             if(prev_close != 0):
-                pre_close_to_close = round((close - prev_close) / prev_close,2)
+                pre_close_to_close = round((close - prev_close) / prev_close *100,2)
             open_to_close = 0
             if(open != 0):
-                open_to_close = round((close -open) / open,2)
+                open_to_close = round((close -open) / open * 100,2)
             low_to_high = 0
             if(low != 0):
-                low_to_high = round((high - low) / low,2)
+                low_to_high = round((high - low) / low * 100,2)
             prev_close = close
             find = self.findStockBySymbolAndDate(symbol,date)
             if find is not None:
@@ -144,13 +144,13 @@ class Stocks:
             print("existed: %s, %s" % (symbol,stock.dateV) )
             return
         try:
-            sql = "INSERT INTO " + dbtable_stocks + "(symbol,dateV, open, close, close_adj, high, low, volume,prev_close_to_close,open_to_close,low_to_high) VALUES('%s','%s','%f','%f','%f','%f','%f','%f','%f','%f','%f') " \
-                                                        %(stock.symbol,stock.dateV, stock.open, stock.close, stock.close_adj,stock.high,stock.low,stock.volume,stock.pre_close_to_close,stock.open_to_close,stock.low_to_high);
+            sql = "INSERT INTO " + dbtable_stocks + "(symbol, dateV, open, close, close_adj, high, low, volume,prev_close_to_close,open_to_close,low_to_high) VALUES('%s','%s','%f','%f','%f','%f','%f','%f','%f','%f','%f') " \
+                                                        %(stock.symbol,stock.dateV, float(stock.open), float(stock.close), float(stock.close_adj),float(stock.high),float(stock.low),float(stock.volume),float(stock.prev_close_to_close),float(stock.open_to_close),float(stock.low_to_high));
             #print("\n" + sql)
             self.dbh.execute (sql )
             print("add: %s, %s" % (symbol,stock.dateV))
-        except:
-            print("Failed: " + symbol + ' ' + stock.dateV )
+        except Exception as e:
+            print("Failed: " + symbol + ' ' + stock.dateV + 'exception:' +  str(e))
 
     def close(self):
         self.dbh.close()

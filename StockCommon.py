@@ -95,7 +95,11 @@ def getStock(stockCode, todayStr):
         dataUrl = "http://hq.sinajs.cn/list=" + exchange + stockCode
         stdout = urllib.request.urlopen(dataUrl)
         stdoutInfo = stdout.read().decode('gb2312')
-        tempData = re.search('''(")(.+)(")''', stdoutInfo).group(2)
+        re_result = re.search('''(")(.+)(")''', stdoutInfo)
+        if re_result is None:
+            print("the stock %s is not actived" % stockCode)
+            return None,1
+        tempData = re_result.group(2)
         stockInfo = tempData.split(",")
         #stockCode = stockCode,
         stockName   = stockInfo[0]  #名称
@@ -118,6 +122,10 @@ def getStock(stockCode, todayStr):
         else:
             is_close_price = 1
 
+        if float(stockStart) < 0.0001:
+            print("the stock %s is stopped" % stockCode)
+            return None,is_close_price
+
 
         content = "#" + stockName + "#(" + stockCode + ")" + " 开盘:" + stockStart \
         + ",最新:" + stockCur + ",最高:" + stockMax + ",最低:" + stockMin \
@@ -126,9 +134,9 @@ def getStock(stockCode, todayStr):
         + "亿" + ",更新时间:" + stockTime + "  "
 
         #imgUrl = "http://image.sinajs.cn/newchart/" + period + "/n/" + exchange + str(stockCode) + ".gif"
-
-        open_to_close = round((float(stockCur) - float(stockStart))/float(stockStart),4)
-        low_to_high =  round((float(stockMax) - float(stockMin))/float(stockMin),4)
+        #print(content)
+        open_to_close = round((float(stockCur) - float(stockStart))/float(stockStart)*100,4)
+        low_to_high =  round((float(stockMax) - float(stockMin))/float(stockMin)*100,4)
         s = Stock(stockCode,stockDate,stockStart,stockCur,stockCur,stockMax,stockMin,stockVolume,stockRange,open_to_close,low_to_high)
 
     except Exception as e:

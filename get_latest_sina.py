@@ -14,7 +14,8 @@ sdb = Stocks();
 
 
 for stock in StockCommon.getAllSymbols2():
-    symbol,symbol_y = StockCommon.symbolFormat(stock)
+    #symbol,symbol_y = StockCommon.symbolFormat('300186')
+    symbol = stock
     print('-------------------------------------')
     print(symbol)
     s,is_close_price = StockCommon.getStock(symbol,todayStr)
