@@ -141,7 +141,7 @@ def getStock(stockCode, todayStr):
 
     except Exception as e:
         print(">>>>>> Exception: " + str(e))
-        return None,is_close_price
+        return None,1
 
     return s, is_close_price
 
