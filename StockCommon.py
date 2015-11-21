@@ -1,6 +1,14 @@
 #coding=utf-8
 import re
-import urllib.request
+try:
+    # py3
+    from urllib.request import Request, urlopen
+    from urllib.parse import urlencode
+except ImportError:
+    # py2
+    from urllib2 import Request, urlopen
+    from urllib import urlencode
+
 from StockDB import Symbols
 from Stock import Stock
 
