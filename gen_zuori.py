@@ -101,7 +101,9 @@ for r in latest:
 
     name = symbols.getName(symbol)
     s,is_close_price = getStock(symbol,todayStr)
-    zhangfu = s.prev_close_to_close
+    zhangfu = 0
+    if s is not None:
+        zhangfu = s.prev_close_to_close
     tr1 = tbody1 << tr(id='line'+str(i))
     link1 = tr1 << td()
     link1 << a(symbol,href="http://stock.jrj.com.cn/share," + str(symbol) + ".shtml")
@@ -123,4 +125,3 @@ page.printOut(f)
 if os.path.exists('web2/content/pages/zuori.html'):
     os.remove('web2/content/pages/zuori.html')
 os.symlink('../../' + fn,'web2/content/pages/zuori.html')
-
