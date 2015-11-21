@@ -1,4 +1,4 @@
-
+#coding=utf-8
 class Stock:
      def __init__(self, symbol,dateV,open,close,close_adj,high,low,volume,prev_close_to_close,open_to_close,low_to_high):
          self.symbol = symbol

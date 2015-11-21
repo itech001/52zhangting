@@ -1,3 +1,4 @@
+#coding=utf-8
 from pprint import pprint
 from SqliteWrapper import SqliteWrapper
 from Stock import Stock

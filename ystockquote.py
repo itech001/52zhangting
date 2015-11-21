@@ -1,3 +1,4 @@
+#coding=utf-8
 #
 #  ystockquote : Python module - retrieve stock quote data from Yahoo Finance
 #
