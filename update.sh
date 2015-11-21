@@ -1,4 +1,8 @@
 #!/bin/sh -x
+
+dir=`dirname $0`
+cd $dir
+
 for arg in "$@"
 do
   if [ "$arg" = "-history" ]
