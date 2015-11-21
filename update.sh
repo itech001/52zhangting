@@ -12,14 +12,14 @@ if [ "$history" = "yes" ]
 then
    echo get history
    #python get_history.py
-   python get_latest_sina.py
+   python3 get_latest_sina.py
    #python get_history.py > web/get_history.txt 2>&1
 fi
 
 echo generate pages
-python gen_yaogu.py
-python gen_yaogu2.py
-python gen_qushi.py
+python3 gen_yaogu.py
+python3 gen_yaogu2.py
+python3 gen_qushi.py
 
 echo generate website
 cd web2/
