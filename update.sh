@@ -5,31 +5,55 @@ do
   then
     history=yes
   fi
+  if [ "$arg" = "-pull_code" ]
+  then
+    pull_code=yes
+  fi
+  if [ "$arg" = "-push_code" ]
+  then
+    push_code=yes
+  fi
+  if [ "$arg" = "-deploy" ]
+  then
+    deploy=yes
+  fi
 done
 
-#get stock data
+echo pull code
+if [ "$pull_code" = "yes" ]
+then
+  git pull
+fi
+
+echo get stock data and insert into db
 if [ "$history" = "yes" ]
 then
-   echo get history
-   #python get_history.py
+   #python3 get_history.py
    python3 get_latest_sina.py
-   #python get_history.py > web/get_history.txt 2>&1
 fi
 
 echo generate pages
-python3 gen_yaogu.py
+#python3 gen_yaogu.py
 python3 gen_yaogu2.py
 python3 gen_qushi.py
-
-echo generate website
+echo call pelican
 cd web2/
 make publish
-#cp output/others/404.html output/
-mkdir output/v1
-cp -rf ../web/* output/v1/
 cd ../
 
-#submit
-#git add .
-#git commit -m "update"
-#git push
+d=`date "+%Y-%m-%d"`
+echo push code
+if [ "$push_code" = "yes" ]
+then
+    git add .
+    git commit -m $d
+    git push
+fi
+
+echo deploy
+if [ "$deploy" = "yes" ]
+then
+    cp -rf web2/* /root/webdir/52zhangting/
+fi
+
+exit 0
