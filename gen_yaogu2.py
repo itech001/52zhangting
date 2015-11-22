@@ -106,7 +106,7 @@ for r in allOneWeek:
     tr1 << td(inOneMonth)
     tr1 << td(inall)
 
-f = 'web2/yaogu/' + todayStr + '.html'
+f = 'web2/yaogu/' + latestDate + '.html'
 fn = re.sub('web2/','',f)
 print("%s is generated" %f)
 page.printOut(f)
