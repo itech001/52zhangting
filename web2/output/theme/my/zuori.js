@@ -6,7 +6,7 @@
     ordering: true,
     orderMulti : true,
     pageLength: 100,
-    order: [[ 4, 'asc' ], [8,'desc']],
+    order: [[ 2, 'asc' ],[ 4, 'asc' ], [8,'desc']],
     columnDefs: [
     {
       targets: [ 4 ],
@@ -22,7 +22,7 @@
     },
     {
       targets: [ 2],
-      orderData: [ 2, 4,8 ]
+      orderData: [ 2, 4, 8 ]
     },
     {
       targets: [ 3],

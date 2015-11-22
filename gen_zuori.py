@@ -44,7 +44,7 @@ div0 = page << div(align='center')
 
 
 #page << hr()
-#page << h5("最后跟新：" + todayStrFull, align='center')
+page << h5("最后跟新：" + todayStrFull, align='center')
 mydiv1 = page << div(id='myDiv1')
 mydiv1.attributes['class'] = 'container'
 mydiv2 = mydiv1 << div(id='myDiv2')

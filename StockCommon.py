@@ -102,7 +102,7 @@ def getStock(stockCode, todayStr):
         else:
             exchange = 'sh'
         dataUrl = "http://hq.sinajs.cn/list=" + exchange + stockCode
-        stdout = urllib.request.urlopen(dataUrl)
+        stdout = urlopen(dataUrl)
         stdoutInfo = stdout.read().decode('gb2312')
         re_result = re.search('''(")(.+)(")''', stdoutInfo)
         if re_result is None:
@@ -158,7 +158,7 @@ def getStockName(stockCode):
     try:
         exchange = "sh" if (int(stockCode) // 100000 == 6) else "sz"
         dataUrl = "http://hq.sinajs.cn/list=" + exchange + stockCode
-        stdout = urllib.request.urlopen(dataUrl)
+        stdout = urlopen(dataUrl)
         stdoutInfo = stdout.read().decode('gb2312')
         tempData = re.search('''(")(.+)(")''', stdoutInfo).group(2)
         stockInfo = tempData.split(",")

@@ -48,7 +48,7 @@ for date in sorted(alldata.keys()):
     hash = alldata[date]
     keys = hash.keys()
     if "shangzheng" in keys:
-        v = int(hash["shangzheng"] / 2)
+        v = int(hash["shangzheng"])
         shangzheng_str += str(v ) + ','
         prev_shangzheng = v
     else:
@@ -82,7 +82,7 @@ html = """
 </head>
 <body>
     <div id="myDiv1" class="container"><div id="myDiv2" class="row">
-    <div id="main" style="height:400px"></div>
+    <div id="main" style="height:800px"></div>
     </div></div>
     <!-- ECharts单文件引入 -->
     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
@@ -125,15 +125,20 @@ option = {
     xAxis : [
         {
             type : 'category',
-            boundaryGap : false,
+            boundaryGap : true,
             data: %s,
+            name: '时间',
 
         }
     ],
     yAxis : [
         {
             type : 'value',
-            splitNumber: 15,
+            splitNumber: 11,
+            boundaryGap : false,
+            name:'指数和涨跌数',
+            max: 5500,
+            min: 0,
         }
     ],
     series : [
@@ -206,12 +211,13 @@ def writeFile(outPath,content):
     else:
         print ("Error Opening File.")
 
-filename = 'web2/content/pages/qushi.html'
-if os.path.exists(filename):
-    os.remove(filename)
-
-writeFile(filename,html)
-print(filename)
+f = 'web2/qushi/qushi.html'
+fn = re.sub('web2/','',f)
+print("%s is generated" %f)
+writeFile(f,html)
+if os.path.exists('web2/content/pages/qushi.html'):
+    os.remove('web2/content/pages/qushi.html')
+os.symlink('../../' + fn,'web2/content/pages/qushi.html')
 
 
 
