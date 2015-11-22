@@ -57,7 +57,7 @@ fi
 echo deploy
 if [ "$deploy" = "yes" ]
 then
-    cp -rf web2/output/* /root/webdir/52zhangting/
+    cp -rf web2/output/* /var/www/52zhangting/
 fi
 
 exit 0
