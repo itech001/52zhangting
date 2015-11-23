@@ -1,5 +1,7 @@
 #!/bin/sh -x
 
+export PATH=/usr/local/bin:$PATH
+
 dir=`dirname $0`
 cd $dir
 
