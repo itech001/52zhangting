@@ -26,6 +26,7 @@ done
 echo pull code
 if [ "$pull_code" = "yes" ]
 then
+  git reset --hard
   git pull
 fi
 
