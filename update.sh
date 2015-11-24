@@ -43,6 +43,7 @@ echo generate pages
 #python3 gen_yaogu.py
 python3 gen_yaogu2.py
 python3 gen_qushi.py
+python3 gen_zuori.py
 echo call pelican
 cd web2/
 make publish
