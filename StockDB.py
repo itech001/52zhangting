@@ -23,6 +23,14 @@ dbtable_symbols_create = '''CREATE TABLE IF NOT EXISTS ''' + dbtable_symbols + '
    (symbol CHAR(128) NOT NULL PRIMARY KEY,
     name CHAR(128) NOT NULL );'''
 
+dbtable_concepts = 'concepts'
+dbtable_concepts_create ='''CREATE TABLE IF NOT EXISTS ''' + dbtable_concepts + '''
+   (concept CHAR(128) NOT NULL PRIMARY KEY,
+    name CHAR(128) NOT NULL,
+    url CHAR(500) NOT NULL,
+    stocks CHAR(1000));
+'''
+
 class Stocks:
     def __init__(self):
         self.dbh = SqliteWrapper()
@@ -199,3 +207,64 @@ class Symbols:
 
     def close(self):
         self.dbh.close()
+
+
+class Concepts:
+    def __init__(self):
+        self.dbh = SqliteWrapper()
+        self.dbh.connect(dbfile)
+        print('-------------------------------------')
+        print(dbtable_concepts_create)
+        self.dbh.execute(dbtable_concepts_create)
+
+    def __del__(self):
+        self.dbh.close()
+
+    def insertConcept(self, concept, name, url,stocks):
+        con = self.getConcept(concept)
+        if con:
+            print(concept + 'is existed')
+            return
+        try:
+            sql = "INSERT INTO " + dbtable_concepts + "(concept,name,url,stocks) VALUES('%s','%s','%s','%s') " %(concept,name,url,stocks)
+            #print('-------------------------------------')
+            #print(sql)
+            self.dbh.execute (sql )
+            print("add: %s, %s, %s, %s" % (concept,name,url,stocks))
+        except Exception as e:
+            print(e)
+
+    def getConcepts(self):
+        try:
+            sql = "select * from " + dbtable_concepts
+            all = self.dbh.select(sql)
+            return all
+        except Exception as e:
+            print(e)
+
+        return None
+
+    def getConcept(self,concept):
+        sql = "select * from %s where concept='%s' " %(dbtable_concepts,concept)
+        all = self.dbh.select(sql)
+        return all
+
+    def getConceptByStock(self,stock):
+        sql = "select name,url from %s where stocks like '%s" %(dbtable_concepts,stock)
+        all = self.dbh.select(sql)
+        links_str = ''
+        for a in all:
+            name = a[0]
+            link = a[1]
+            if links_str == '':
+                links_str = "<a href=%s>%s</a>" % (name,link)
+            else:
+                links_str += ",<a href=%s>%s</a>" % (name,link)
+
+        return links_str
+
+
+    def close(self):
+        self.dbh.close()
+
+
