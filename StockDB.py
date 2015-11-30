@@ -250,7 +250,7 @@ class Concepts:
         return all
 
     def getConceptByStock(self,stock):
-        sql = "select name,url from %s where stocks like '%s" %(dbtable_concepts,stock)
+        sql = "select name,url from " + dbtable_concepts + " where stocks like " + "'%" + stock + "%'"
         all = self.dbh.select(sql)
         links_str = ''
         for a in all:
