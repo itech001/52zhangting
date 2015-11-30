@@ -257,9 +257,9 @@ class Concepts:
             name = a[0]
             link = a[1]
             if links_str == '':
-                links_str = "<a href=%s>%s</a>" % (name,link)
+                links_str = "<a href=%s>%s</a>" % (link,name)
             else:
-                links_str += ",<a href=%s>%s</a>" % (name,link)
+                links_str += ",<a href=%s>%s</a>" % (link,name)
 
         return links_str
 
