@@ -10,6 +10,7 @@ from pyh import *
 stocks = Stocks()
 symbols = Symbols()
 all_symbols = symbols.getSymbols()
+concepts = Concepts()
 
 oneWeek = 7
 twoWeek = 14
@@ -61,6 +62,7 @@ tr1 << th('最近1周')
 tr1 << th('最近２周')
 tr1 << th('最近1月')
 tr1 << th('2015')
+tr1 << th('概念')
 
 tbody1 = table1 << tbody(id='tboday1')
 i = 0
@@ -105,6 +107,8 @@ for r in allOneWeek:
     tr1 << td(inTwoWeek)
     tr1 << td(inOneMonth)
     tr1 << td(inall)
+    gainian = concepts.getConceptByStock(symbol)
+    tr1 << td(gainian)
 
 f = 'web2/yaogu/' + latestDate + '.html'
 fn = re.sub('web2/','',f)
