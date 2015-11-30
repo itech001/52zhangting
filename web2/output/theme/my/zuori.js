@@ -44,6 +44,6 @@
       targets: [ 0 ],
       orderData: [ 0, 1]
     } ],
-     columns: [    { type: "html" },    { type: "html" },    { type: "num" },    { type: "num" }, {type:"num"} ,{type:"num"} , {type:"num"}, {type:"num"} , {type:"num"} ]
+     columns: [    { type: "html" },    { type: "html" },    { type: "num" },    { type: "num" }, {type:"num"} ,{type:"num"} , {type:"num"}, {type:"num"} , {type:"num"} ,{ type: "html" }]
   } );
 } );
