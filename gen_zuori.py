@@ -110,9 +110,9 @@ for r in latest:
     link1 << a(symbol,href="http://stock.jrj.com.cn/share," + str(symbol) + ".shtml")
     #http://stock.jrj.com.cn/share,002292.shtml
     tr1 << td(name)
-    tr1 << td("%f%%" % round(low_to_high,2))
-    tr1 << td("%f%%" % round(prev_close_to_close,2))
-    tr1 << td("%f%%" % round(zhangfu,2))
+    tr1 << td("%s%%" % round(low_to_high,2))
+    tr1 << td("%s%%" % round(prev_close_to_close,2))
+    tr1 << td("%s%%" % round(zhangfu,2))
     tr1 << td(inOneWeek)
     tr1 << td(inTwoWeek)
     tr1 << td(inOneMonth)
