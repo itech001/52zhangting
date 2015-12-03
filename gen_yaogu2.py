@@ -26,7 +26,7 @@ allOneMonth = stocks.findGreatThan9ForLatestDays(oneMonth)
 todayStr = datetime.now().strftime('%Y-%m-%d')
 todayStrFull = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-title = "最近涨停"
+title = "一周涨停"
 
 page = PyH(title)
 page.addCSS('../bootstrap-3.3.5-dist/css/bootstrap.min.css', '../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css',  '../DataTables-1.10.9/css/dataTables.bootstrap.min.css')
