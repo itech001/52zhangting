@@ -13,14 +13,14 @@ all_symbols = symbols.getSymbols()
 concepts = Concepts()
 
 oneWeek = 7
-twoWeek = 14
+threeMonth = 90
 oneMonth = 30
 showRecord = 2000
 latestDate = stocks.getLatestDate();
 latest = stocks.findGreatThan9ForDay(latestDate)
 all = stocks.findGreatThan9()
 allOneWeek = stocks.findGreatThan9ForLatestDays(oneWeek)
-allTwoWeek = stocks.findGreatThan9ForLatestDays(twoWeek)
+allThreeMonth = stocks.findGreatThan9ForLatestDays(threeMonth)
 allOneMonth = stocks.findGreatThan9ForLatestDays(oneMonth)
 
 todayStr = datetime.now().strftime('%Y-%m-%d')
@@ -43,7 +43,7 @@ div0 = page << div(align='center')
 
 
 #page << hr()
-#page << h5("最后跟新：" + todayStrFull, align='center')
+page << h5("最近一周涨停股历史涨停数统计。最后跟新：" + todayStrFull, align='center')
 mydiv1 = page << div(id='myDiv1')
 mydiv1.attributes['class'] = 'container'
 mydiv2 = mydiv1 << div(id='myDiv2')
@@ -58,9 +58,9 @@ tr1 = thead1 << tr(id='headline')
 tr1 << th('代码')
 tr1 << th('名字')
 tr1 << th(latestDate)
-tr1 << th('最近1周')
-tr1 << th('最近２周')
-tr1 << th('最近1月')
+tr1 << th('最近１周')
+tr1 << th('最近１月')
+tr1 << th('最近１季')
 tr1 << th('2015')
 tr1 << th('概念')
 
@@ -72,10 +72,10 @@ for r in allOneWeek:
     symbol = r[0]
     inOneWeek = r[1]
 
-    inTwoWeek = 0
-    for r1 in allTwoWeek:
+    inThreeMonth = 0
+    for r1 in allThreeMonth:
         if(symbol == r1[0]):
-            inTwoWeek = r1[1]
+            inThreeMonth = r1[1]
             break
 
     inOneMonth = 0
@@ -104,8 +104,8 @@ for r in allOneWeek:
     tr1 << td(name)
     tr1 << td(inlatest)
     tr1 << td(inOneWeek)
-    tr1 << td(inTwoWeek)
     tr1 << td(inOneMonth)
+    tr1 << td(inThreeMonth)
     tr1 << td(inall)
     gainian = concepts.getConceptByStock(symbol)
     tr1 << td(gainian)
