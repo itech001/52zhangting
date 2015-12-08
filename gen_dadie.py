@@ -28,7 +28,7 @@ title = "妖股大跌"
 
 page = PyH(title)
 page.addCSS('../bootstrap-3.3.5-dist/css/bootstrap.min.css', '../bootstrap-3.3.5-dist/css/bootstrap-theme.min.css',  '../DataTables-1.10.9/css/dataTables.bootstrap.min.css')
-page.addJS('../jQuery-2.1.4/jquery-2.1.4.min.js', '../bootstrap-3.3.5-dist/js/bootstrap.min.js', '../DataTables-1.10.9/js/jquery.dataTables.min.js','../DataTables-1.10.9/js/dataTables.bootstrap.min.js','../my/zuori.js')
+page.addJS('../jQuery-2.1.4/jquery-2.1.4.min.js', '../bootstrap-3.3.5-dist/js/bootstrap.min.js', '../DataTables-1.10.9/js/jquery.dataTables.min.js','../DataTables-1.10.9/js/dataTables.bootstrap.min.js','../my/dadie.js')
 
 #head = page << head()
 #<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -79,6 +79,7 @@ for r in all:
       s,is_close_price = getStock(symbol,todayStr)
       if(is_close_price):
           market_open = 0
+          s =None
 
     zhangfu = 'closed'
     if s is not None:
@@ -90,7 +91,7 @@ for r in all:
     zhangfu_day_ago = 0
     stock_day_ago = stocks.findStockBySymbolAndDate(symbol,day_ago)
     if stock_day_ago:
-        price_day_ago = stock_day_ago.prev_close_to_close
+        zhangfu_day_ago = stock_day_ago.prev_close_to_close
 
     tr1 = tbody1 << tr(id='line'+str(i))
     link1 = tr1 << td()
