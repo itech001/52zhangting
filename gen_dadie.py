@@ -49,7 +49,7 @@ mydiv2.attributes['class'] = 'row'
 
 #mydiv2 <<h2('title2 in div2') << p('paragraph under title2')
 
-table1 = mydiv2 << table(border='1',id='mytable2', width='100%')
+table1 = mydiv2 << table(border='1',id='mytable3', width='100%')
 table1.attributes['class'] = 'table table-bordered table-hover'
 thead1 = table1 << thead(id='thead1')
 tr1 = thead1 << tr(id='headline')

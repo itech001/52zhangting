@@ -1,6 +1,6 @@
 
   $(document).ready(function() {
-  $('#mytable2').dataTable( {
+  $('#mytable3').dataTable( {
     searching: true,
     paging: true,
     ordering: true,
