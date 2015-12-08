@@ -74,16 +74,18 @@ for r in all:
     inall = r[1]
 
     name = symbols.getName(symbol)
-    s = None
+    zhangfu = 0
     if market_open:
       s,is_close_price = getStock(symbol,todayStr)
       if(is_close_price):
           market_open = 0
-          s =None
 
-    zhangfu = 'closed'
-    if s is not None:
+      if s is not None:
         zhangfu = s.prev_close_to_close
+    else:
+      stock_today = stocks.findStockBySymbolAndDate(symbol,todayStr)
+      if stock_today:
+          zhangfu = stock_today.prev_close_to_close
 
     month_zhangdie = stocks.getzhangdie(symbol,month_ago,latestDate)
     week_zhangdie = stocks.getzhangdie(symbol,week_ago,latestDate)
