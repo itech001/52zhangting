@@ -6,7 +6,7 @@
     ordering: true,
     orderMulti : true,
     pageLength: 100,
-    order: [[ 2, 'desc' ],[ 6, 'desc' ],
+    order: [[ 2, 'desc' ],[ 6, 'desc' ]],
     columnDefs: [
     {
       targets: [ 2 ],
