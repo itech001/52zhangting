@@ -87,6 +87,14 @@ class Stocks:
         else:
             return None
 
+    def getOldDate(self,days_ago):
+        sql = "select distinct dateV from stocks order by dateV desc;"
+        all = self.dbh.select(sql)
+        if(len(all) > days_ago ):
+            return all[days_ago][0]
+        else:
+            return None
+
     def findGreaterCounts(self,rate):
         sql = "select count(symbol),dateV from stocks where prev_close_to_close > %f group by dateV order by dateV" %rate
         all = self.dbh.select(sql)
@@ -106,6 +114,19 @@ class Stocks:
         sql = "select symbol,low_to_high,prev_close_to_close as c from stocks where prev_close_to_close > 9 and dateV = '%s' group by symbol order by c desc;" %day
         all = self.dbh.select(sql)
         return all
+
+    def getzhangdie(self,symbol,start_date, end_date):
+        if(start_date > end_date):
+            (start_date,end_date) = (end_date,start_date)
+        sql = "select open, close from stocks where symbol='%s' and (dateV='%s' or dateV='%s') order by dateV desc" %(symbol,start_date,end_date)
+        all = self.dbh.select(sql)
+        zhangdie = 0
+        if(len(all) == 2):
+            end_close = all[0][1]
+            start_open = all[1][0]
+            zhangdie = round((end_close-start_open)*100/start_open,2)
+
+        return zhangdie
 
     def insertStocks(self, symbol, stockDBHash):
         if stockDBHash is None:
