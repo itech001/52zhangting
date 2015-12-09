@@ -104,7 +104,7 @@ for r in all:
     tr1 << td("%s" % month_zhangdie)
     tr1 << td("%s" % week_zhangdie)
     tr1 << td("%s" % zhangfu_day_ago)
-    tr1 << td("%s" % zhangfu)
+    tr1 << td("%s" % round(zhangfu,2))
     tr1 << td(inall)
     gainian = concepts.getConceptByStock(symbol)
     tr1 << td(gainian)
