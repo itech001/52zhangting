@@ -57,7 +57,8 @@ tr1 << th('代码')
 tr1 << th('名字')
 tr1 << th('一月涨跌%')
 tr1 << th('一周涨跌%')
-tr1 << th('昨日涨跌%')
+tr1 << th('%s涨跌%%' % day_ago)
+tr1 << th('%s涨跌%%' % latestDate)
 tr1 << th('今日涨幅%')
 tr1 << th('最近30交易日涨停数')
 tr1 << th('概念')
@@ -92,8 +93,13 @@ for r in all:
 
     zhangfu_day_ago = 0
     stock_day_ago = stocks.findStockBySymbolAndDate(symbol,day_ago)
-    if stock_day_ago:
+    if stock_day_ago is not None:
         zhangfu_day_ago = stock_day_ago.prev_close_to_close
+
+    zhangfu_latest = 0
+    stock_latest = stocks.findStockBySymbolAndDate(symbol,latestDate)
+    if stock_latest is not None:
+        zhangfu_latest = stock_latest.prev_close_to_close
 
     tr1 = tbody1 << tr(id='line'+str(i))
     link1 = tr1 << td()
@@ -104,6 +110,7 @@ for r in all:
     tr1 << td("%s" % month_zhangdie)
     tr1 << td("%s" % week_zhangdie)
     tr1 << td("%s" % zhangfu_day_ago)
+    tr1 << td("%s" % zhangfu_latest)
     tr1 << td("%s" % round(zhangfu,2))
     tr1 << td(inall)
     gainian = concepts.getConceptByStock(symbol)

@@ -6,15 +6,15 @@
     ordering: true,
     orderMulti : true,
     pageLength: 100,
-    order: [[ 2, 'desc' ],[ 6, 'desc' ]],
+    order: [[ 2, 'desc' ],[ 7, 'desc' ]],
     columnDefs: [
     {
       targets: [ 2 ],
-      orderData: [ 2, 6 ]
+      orderData: [ 2, 7 ]
     },
     {
-      targets: [ 6],
-      orderData: [ 6, 2 ]
+      targets: [ 7],
+      orderData: [ 7, 2 ]
     },
     {
       targets: [ 3],
@@ -27,6 +27,10 @@
     {
       targets: [ 4],
       orderData: [ 4, 6 ]
+    },
+    {
+      targets: [ 6],
+      orderData: [ 6, 7 ]
     },
     {
       targets: [ 5],
