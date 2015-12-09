@@ -21,21 +21,17 @@
       orderData: [ 3, 6 ]
     },
     {
-      targets: [ 2],
-      orderData: [ 2, 4, 8 ]
+      targets: [ 5],
+      orderData: [ 5, 7 ]
     },
     {
       targets: [ 4],
-      orderData: [ 4, 6 ]
+      orderData: [ 4, 7 ]
     },
     {
       targets: [ 6],
       orderData: [ 6, 7 ]
-    },
-    {
-      targets: [ 5],
-      orderData: [ 5, 6 ]
     }   ],
-     columns: [    { type: "html" },    { type: "html" },    { type: "num" },    { type: "num" }, {type:"num"} ,{type:"num"} , {type:"num"},{ type: "html" }]
+     columns: [    { type: "html" },    { type: "html" },    { type: "num" },    { type: "num" },{ type: "num" }, {type:"num"} ,{type:"num"} , {type:"num"},{ type: "html" }]
   } );
 } );
